@@ -4,12 +4,17 @@ let
   cfg = config.modules.peripherals;
 in
 {
+  imports = [
+    ./dellXpsAudioEqualizer.nix
+  ];
+
   options = {
     modules.peripherals.enable = mkEnableOption "Enable peripheral configuration" // {
       default = true;
     };
     modules.peripherals.obs.enable = mkEnableOption "Enable OBS virtual camera";
     modules.peripherals.scarlettRite.enable = mkEnableOption "Enable Scarlett Rite";
+    modules.peripherals.dellXpsEqualizer.enable = mkEnableOption "Enable Dell XPS speaker equalizer with PipeWire";
   };
   config = mkIf cfg.enable {
     boot = {
