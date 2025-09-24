@@ -217,6 +217,7 @@ in
             pseudotile = true; # master switch for pseudotiling. Enabling is bound to mainMod + P in the keybinds section below
             preserve_split = true; # you probably want this
           };
+          
           group = {
             "col.border_active" = lib.mkDefault "${activeGradient}";
             "col.border_inactive" = lib.mkDefault "${inactiveGradient}";
@@ -230,13 +231,8 @@ in
               indicator_height = 1;
             };
           };
-          gestures = {
-            workspace_swipe = true;
-            workspace_swipe_fingers = 3;
-            workspace_swipe_invert = false;
-            workspace_swipe_distance = 200;
-            workspace_swipe_forever = true;
-          };
+
+          gesture = "3, horizontal, workspace";
 
           misc = {
             animate_manual_resizes = true;
